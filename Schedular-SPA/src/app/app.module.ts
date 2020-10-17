@@ -56,6 +56,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { ViewTasksComponent } from './viewTasks/viewTasks.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { StandardUserPasswordComponent } from './StandardUserPassword/StandardUserPassword.component';
 
 // register FullCalendar plugins
 FullCalendarModule.registerPlugins([
@@ -87,7 +88,9 @@ export function tokengetter() {
     EditRoleComponent,
     AdminConsoleNavComponent,
     PasswordResetComponent,
-      ViewTasksComponent
+    StandardUserPasswordComponent,
+      ViewTasksComponent,
+      StandardUserPasswordComponent
    ],
   imports: [
     CommonModule,

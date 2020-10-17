@@ -21,6 +21,7 @@ import { UserLoaderResolver } from './_resolvers/user-loader.resolver';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LoginPageComponent } from './loginPage/loginPage.component';
 import { PasswordResetComponent } from './AdminConsole/passwordReset/passwordReset.component';
+import { StandardUserPasswordComponent } from './StandardUserPassword/StandardUserPassword.component';
 
 
 export const appRoutes: Routes = [
@@ -42,6 +43,10 @@ export const appRoutes: Routes = [
         path: 'editUsername',
         component: EditUsernameComponent,
         canActivate: [RoleGuard]
+    },
+    {
+        path: 'StandardPassword',
+        component: StandardUserPasswordComponent
     },
     {
         path: 'editRole',
