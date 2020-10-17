@@ -26,7 +26,7 @@ export class EditUserService {
   }
 
   editStandardPassword( model: any): Observable<any> {
-    return this.http.put<any>(this.PasswordUrl + 'standardPasswordReset', model);
+    return this.http.put<any>(this.baseUrl + 'standardPasswordReset', model);
   }
 
 
