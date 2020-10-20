@@ -1,3 +1,4 @@
+import { HelpSectionComponent } from './Help-Section/Help-Section.component';
 import { HelpComponent } from './help/help.component';
 import { AdminConsoleNavComponent } from './AdminConsole/adminConsole-nav/adminConsole-nav.component';
 import { ViewTasksComponent } from './viewTasks/viewTasks.component';
@@ -52,6 +53,10 @@ export const appRoutes: Routes = [
     {
         path: 'Help',
         component: HelpComponent , canActivate: [AuthGuard]
+    },
+    {
+        path: 'HelpSection',
+        component: HelpSectionComponent , canActivate: [AuthGuard]
     },
     {
         path: 'editRole',
