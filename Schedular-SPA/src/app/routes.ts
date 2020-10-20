@@ -1,3 +1,4 @@
+import { HelpComponent } from './help/help.component';
 import { AdminConsoleNavComponent } from './AdminConsole/adminConsole-nav/adminConsole-nav.component';
 import { ViewTasksComponent } from './viewTasks/viewTasks.component';
 import { EditRoleComponent } from './AdminConsole/editRole/editRole.component';
@@ -46,7 +47,11 @@ export const appRoutes: Routes = [
     },
     {
         path: 'StandardPassword',
-        component: StandardUserPasswordComponent
+        component: StandardUserPasswordComponent , canActivate: [AuthGuard]
+    },
+    {
+        path: 'Help',
+        component: HelpComponent , canActivate: [AuthGuard]
     },
     {
         path: 'editRole',
@@ -63,6 +68,7 @@ export const appRoutes: Routes = [
         component: AdminConsoleNavComponent,
         canActivate: [RoleGuard]
     },
+
     {
         path: 'hoursworked',
         component: HoursWorkedComponent,
