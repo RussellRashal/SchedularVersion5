@@ -59,6 +59,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { StandardUserPasswordComponent } from './StandardUserPassword/StandardUserPassword.component';
 import { HelpComponent } from './help/help.component';
 import { HelpSectionComponent } from './Help-Section/Help-Section.component';
+import { ReportSidebarComponent } from './report-sidebar/report-sidebar.component';
 
 // register FullCalendar plugins
 FullCalendarModule.registerPlugins([
@@ -94,7 +95,8 @@ export function tokengetter() {
       ViewTasksComponent,
       StandardUserPasswordComponent,
       HelpComponent,
-      HelpSectionComponent
+      HelpSectionComponent,
+      ReportSidebarComponent
    ],
   imports: [
     CommonModule,

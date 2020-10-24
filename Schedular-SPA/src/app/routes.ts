@@ -1,3 +1,4 @@
+import { ReportSidebarComponent } from './report-sidebar/report-sidebar.component';
 import { HelpSectionComponent } from './Help-Section/Help-Section.component';
 import { HelpComponent } from './help/help.component';
 import { AdminConsoleNavComponent } from './AdminConsole/adminConsole-nav/adminConsole-nav.component';
@@ -53,6 +54,10 @@ export const appRoutes: Routes = [
     {
         path: 'Help',
         component: HelpComponent , canActivate: [AuthGuard]
+    },
+    {
+        path: 'ReportSideBar',
+        component: ReportSidebarComponent , canActivate: [AuthGuard]
     },
     {
         path: 'HelpSection',

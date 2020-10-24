@@ -143,7 +143,7 @@ namespace Schedular.API.Controllers
         }   
 
         [HttpPost("task")]        
-        public async Task<IActionResult> PostSchedule([FromBody] TaskSchedule taskSchedule, IFormFile file)
+        public async Task<IActionResult> PostSchedule( TaskSchedule taskSchedule)
         {
             int tokenUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
  
