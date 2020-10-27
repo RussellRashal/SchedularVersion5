@@ -17,6 +17,7 @@ import { AddTaskComponent } from '../addTask/addTask.component';
 import { delay } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 
+
 @Component({
   selector: 'app-calendarview',
   templateUrl: './CalendarView.component.html',
@@ -32,6 +33,12 @@ export class CalendarViewComponent implements OnInit {
   selectedTask: any[];
   idSelected: number;
   searchTask: FormControl;
+  currentUser;
+  currentUserId;
+  openCloseValue: boolean;
+
+  pageNumber = 1;
+  pageSize = 10;
 
   calendarOptions: CalendarOptions = {
     plugins: [ dayGridPlugin, timeGridPlugin, interactionPlugin],
@@ -42,7 +49,8 @@ export class CalendarViewComponent implements OnInit {
       right: 'dayGridMonth,timeGridWeek,timeGridDay' // buttons for switching between views
     },
     dateClick: this.handleDateClick.bind(this), // bind is important!
-    events: [],
+    events: [
+    ],
   };
 
 
@@ -94,13 +102,14 @@ export class CalendarViewComponent implements OnInit {
         right: 'dayGridMonth,timeGridWeek,timeGridDay' // buttons for switching between views
       },
       // dateClick: this.handleDateClick.bind(this), // bind is important!
+      slotMinTime: '6:00',
+      slotMaxTime: '23:59',
       events: this.apiEvents,
       eventClick: (idOfClickedTask) => {
         // get id of selected task, then filter out the array to get the selected task sent to updateTask
         this.idSelected = Number(idOfClickedTask.event.id);
         // this.selectedTask =  this.apiEvents.find(x => x.id === this.idSelected);
         // console.log(this.selectedTask);
-
         this.stateStorageService.setTaskId(this.idSelected);
         // this.router.navigate(['/updateTask/' + this.idSelected]);
         const dialogRef = this.dialog.open(UpdateTaskComponent, {
@@ -113,6 +122,16 @@ export class CalendarViewComponent implements OnInit {
       }
     };
   }
+
+
+
+  openCloseTasks(isClosed: boolean) {
+    this.openCloseValue = isClosed;
+    this.currentUser = JSON.parse(localStorage.getItem('user'));
+    this.taskScheduleService.getTaskScheduleOpenCloseByUserId(this.currentUser.id, isClosed, this.pageNumber, this.pageSize);
+  }
+
+
 
   // reload the data from update component once dialog box has been closed
   dataReload() {

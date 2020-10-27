@@ -60,7 +60,6 @@ import { StandardUserPasswordComponent } from './StandardUserPassword/StandardUs
 import { HelpComponent } from './help/help.component';
 import { HelpSectionComponent } from './Help-Section/Help-Section.component';
 import { ReportSidebarComponent } from './report-sidebar/report-sidebar.component';
-
 // register FullCalendar plugins
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
